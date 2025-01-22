@@ -2,6 +2,8 @@ package vista;
 
 import excepciones.CampoVacioException;
 import excepciones.DniException;
+import modelo.Bicicleta;
+import modelo.Circulo;
 import modelo.Persona;
 import modelo.Punto;
 import modelo.Rectangulo;
@@ -11,6 +13,8 @@ public class Main {
         //sobre clase persona agregar atributo: dni
         // nombre, apellido, dni -> todos obligatorios.
         // 2 Excepciones -> DniException, campoVacioException.
+
+    /*
         try {
             Persona persona = new Persona("hola", "sgd", "");
             Persona persona1 = new Persona();
@@ -33,5 +37,44 @@ public class Main {
         System.out.println(rectangulo2);
 
         rectangulo = null;
+    */
+
+   // PasoValorReferencia();
+   // Modificadores();
+
+    metodosEstaticos();
+    }
+
+    private static void PasoValorReferencia(){
+        //clase circulo - atr -> int x,y,radio
+        //2 constr.  1. recibe x,y.  2. recibe todo.
+
+        Circulo circulo = new Circulo(2,3);
+        System.out.println(circulo);
+        mueveCirculo(circulo, 20,30);
+        System.out.println(circulo);
+    }
+    public static void mueveCirculo(Circulo circulo, int x, int y){
+        
+        circulo.setX(x);
+        circulo.setY(y);
+
+        circulo = new Circulo(5, 5);
+    }
+
+    private static void Modificadores(){
+        
+    }
+
+    private static void metodosEstaticos(){
+        Bicicleta bicleta1 = new Bicicleta(43, 478, 7834783);
+        Bicicleta bicleta2 = new Bicicleta(4354, 54646, 3453);
+        Bicicleta bicleta3 = new Bicicleta(232, 1, 0);
+
+        System.out.println(bicleta1);
+        System.out.println(bicleta2);
+        System.out.println(bicleta3);
+
+        System.out.println(Bicicleta.getNumBicicletas());
     }
 }
