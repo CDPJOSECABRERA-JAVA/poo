@@ -2,6 +2,11 @@ package vista;
 
 import excepciones.CampoVacioException;
 import excepciones.DniException;
+import herencia.Consultor;
+import herencia.Empleado;
+import herencia.Trabajador;
+import interfacess.Leon;
+import interfacess.Rana;
 import modelo.Bicicleta;
 import modelo.Circulo;
 import modelo.Persona;
@@ -42,7 +47,12 @@ public class Main {
    // PasoValorReferencia();
    // Modificadores();
 
-    metodosEstaticos();
+    //metodosEstaticos();
+
+    //herencia();
+    //polimorfismo();
+
+    interfaces();
     }
 
     private static void PasoValorReferencia(){
@@ -76,5 +86,38 @@ public class Main {
         System.out.println(bicleta3);
 
         System.out.println(Bicicleta.getNumBicicletas());
+    }
+
+    private static void herencia(){
+        Trabajador trabajador = new Trabajador("Wuan", "JEFASO", "Calle bicicleta nº Pedal", "666111666", "5432253");
+        Empleado empleado = new Empleado("Edmundo", "Cocinero", "Calle Atras n2", "653234567", "344634",24.50,5433);
+        System.out.println(empleado);
+    }
+
+    private static void polimorfismo(){
+        Trabajador empleado;
+        Trabajador trabajador;
+        Trabajador consultor;
+        
+        trabajador = new Trabajador("Donaldo Trump", "Presindente", "Calle alli", "654346623", "345346363");
+        empleado = new Empleado("Donaldo Empleado", "empleado", "Calle alli", "654346623", "345346363", 34564, 6);
+        consultor = new Consultor("Donaldo Consultor", "consultor", "Calle alli", "654346623", "345346363",2,7000);
+        
+        imprimirNombreYPaga(trabajador);
+        imprimirNombreYPaga(empleado);
+        imprimirNombreYPaga(consultor);
+
+    }
+    public static void imprimirNombreYPaga(Trabajador t){
+        System.out.printf("El trabajador %s tiene  una paga de %.2f€ %n", t.getNombre(), t.calcularPaga());
+    }
+
+    public static void interfaces(){
+        Rana rana = new Rana();
+
+        Leon leon = new Leon();
+
+        rana.acechar();
+        leon.acechar();
     }
 }

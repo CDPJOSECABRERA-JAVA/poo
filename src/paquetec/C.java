@@ -1,3 +1,5 @@
+package paquetec;
+
 public class C {
     String c;
 
@@ -12,5 +14,4 @@ public class C {
     public void setC(String c) {
         this.c = c;
     }
-
 }
