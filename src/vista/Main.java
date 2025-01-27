@@ -1,5 +1,8 @@
 package vista;
 
+import ejercicios.SaldoInsuficienteException;
+import ejercicios.TarjetaRegalo;
+import equals.EstudioEquals;
 import excepciones.CampoVacioException;
 import excepciones.DniException;
 import herencia.Consultor;
@@ -15,6 +18,40 @@ import modelo.Rectangulo;
 
 public class Main {
     public static void main(String[] args){
+
+        // EJERCICIO TARJETAS CORTE ISLANDES
+
+        boolean bucle = false;
+
+        TarjetaRegalo t1;
+        TarjetaRegalo t2; 
+
+        do {
+            try {
+                t1 = new TarjetaRegalo(500);
+                t2 = new TarjetaRegalo(5);
+
+                System.out.println(t1.toString());
+
+                t1.gasta(100);
+                System.out.println(t1.toString());
+
+                TarjetaRegalo t3 = t1.fusionaCon(t2);
+
+                System.out.println("t1: " + t1.toString());
+                System.out.println("t2: " + t2.toString());
+                System.out.println("t3: " + t3.toString());
+
+                bucle = false;
+            } catch (SaldoInsuficienteException e) {
+                System.out.println(e.getMessage());
+            } catch (Exception e){
+                System.out.println("Error. Intentalo de nuevo");
+                bucle = true;
+            }
+     
+        } while (bucle);
+
         //sobre clase persona agregar atributo: dni
         // nombre, apellido, dni -> todos obligatorios.
         // 2 Excepciones -> DniException, campoVacioException.
@@ -52,7 +89,9 @@ public class Main {
     //herencia();
     //polimorfismo();
 
-    interfaces();
+    //interfaces();
+
+    //EstudioEquals eq = new EstudioEquals();
     }
 
     private static void PasoValorReferencia(){
