@@ -22,20 +22,34 @@ public class Main {
         // EJERCICIO TARJETAS CORTE ISLANDES
         EjercicioTarjetaRegalo();
 
-        //sobre clase persona agregar atributo: dni
-        // nombre, apellido, dni -> todos obligatorios.
-        // 2 Excepciones -> DniException, campoVacioException.
+        //clasePersona();
+        //claseRectangulos();
+        // PasoValorReferencia();
+        // Modificadores();
 
-    /*
-        try {
+        //metodosEstaticos();
+
+        //herencia();
+        //polimorfismo();
+
+        //interfaces();
+
+        //EstudioEquals eq = new EstudioEquals();
+
+
+    }
+
+    private static void clasePersona(){
+       // try {
             Persona persona = new Persona("hola", "sgd", "");
             Persona persona1 = new Persona();
-        } catch (CampoVacioException | DniException e) {
-            System.out.println(e.getMessage());
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        //} catch (CampoVacioException | DniException e) {
+        //    System.out.println(e.getMessage());
+        //} catch (Exception e){
+        //    System.out.println(e.getMessage());
         }
 
+    private static void claseRectangulos(){
         Punto punto1 = new Punto(2,3);
         Punto punto2 = new Punto(5,1);
         Punto punto3 = new Punto(6,2);
@@ -49,21 +63,6 @@ public class Main {
         System.out.println(rectangulo2);
 
         rectangulo = null;
-    */
-
-   // PasoValorReferencia();
-   // Modificadores();
-
-    //metodosEstaticos();
-
-    //herencia();
-    //polimorfismo();
-
-    //interfaces();
-
-    //EstudioEquals eq = new EstudioEquals();
-
-
     }
 
     private static void PasoValorReferencia(){
