@@ -20,37 +20,7 @@ public class Main {
     public static void main(String[] args){
 
         // EJERCICIO TARJETAS CORTE ISLANDES
-
-        boolean bucle = false;
-
-        TarjetaRegalo t1;
-        TarjetaRegalo t2; 
-
-        do {
-            try {
-                t1 = new TarjetaRegalo(500);
-                t2 = new TarjetaRegalo(5.2);
-
-                System.out.println(t1.toString());
-
-                t1.gasta(100);
-                System.out.println(t1.toString());
-
-                TarjetaRegalo t3 = t1.fusionaCon(t2);
-
-                System.out.println("t1: " + t1.toString());
-                System.out.println("t2: " + t2.toString());
-                System.out.println("t3: " + t3.toString());
-
-                bucle = false;
-            } catch (SaldoInsuficienteException e) {
-                System.out.println(e.getMessage());
-            } catch (Exception e){
-                System.out.println("Error. Intentalo de nuevo");
-                bucle = true;
-            }
-     
-        } while (bucle);
+        EjercicioTarjetaRegalo();
 
         //sobre clase persona agregar atributo: dni
         // nombre, apellido, dni -> todos obligatorios.
@@ -92,6 +62,8 @@ public class Main {
     //interfaces();
 
     //EstudioEquals eq = new EstudioEquals();
+
+
     }
 
     private static void PasoValorReferencia(){
@@ -147,16 +119,50 @@ public class Main {
         imprimirNombreYPaga(consultor);
 
     }
-    public static void imprimirNombreYPaga(Trabajador t){
+    private static void imprimirNombreYPaga(Trabajador t){
         System.out.printf("El trabajador %s tiene  una paga de %.2f€ %n", t.getNombre(), t.calcularPaga());
     }
 
-    public static void interfaces(){
+    private static void interfaces(){
         Rana rana = new Rana();
 
         Leon leon = new Leon();
 
         rana.acechar();
         leon.acechar();
+    }
+
+    private static void EjercicioTarjetaRegalo(){
+
+        boolean bucle = false;
+
+        TarjetaRegalo t1;
+        TarjetaRegalo t2; 
+
+        do {
+            try {
+                t1 = new TarjetaRegalo(500);
+                t2 = new TarjetaRegalo(5.2);
+
+                System.out.println(t1.toString());
+
+                t1.gasta(100);
+                System.out.println(t1.toString());
+
+                TarjetaRegalo t3 = t1.fusionaCon(t2);
+
+                System.out.println("t1: " + t1.toString());
+                System.out.println("t2: " + t2.toString());
+                System.out.println("t3: " + t3.toString());
+
+                bucle = false;
+            } catch (SaldoInsuficienteException e) {
+                System.out.println(e.getMessage());
+            } catch (Exception e){
+                System.out.println("Error. Intentalo de nuevo");
+                bucle = true;
+            }
+     
+        } while (bucle);
     }
 }
