@@ -43,17 +43,28 @@ public class Main {
     private static void EjercicioFracciones(){
         
         
-        Fraccion f1 = new Fraccion(20, 5);
-        System.out.println(f1.toString());
+        Fraccion f8 = new Fraccion(8, 4);
+        System.out.println(f8.toString());
         
-        f1.invierte();
-        double division = f1.divide();
-        double multiplicacion = f1.multiplica();
+        f8.invierte();
+        System.out.println(f8.toString());
+        
+        f8.simplifica();
+        System.out.println(f8.toString());
 
-        System.out.println(f1.toString());
-        System.out.println(division);
-        System.out.println(multiplicacion);
 
+        Fraccion f1 = new Fraccion(2,3);
+        Fraccion f2 = new Fraccion(7,5);
+
+        Fraccion f3 = f1.divide(f2);
+        System.out.println(f3.toString());
+        f3.simplifica();
+        System.out.println(f3.toString());
+
+        Fraccion ff1 = new Fraccion(3,6);
+        Fraccion ff2 = new Fraccion(7,1);
+        Fraccion ff3 = ff1.multiplica(ff2);
+        System.out.println(ff3.toString());
 
 
     }

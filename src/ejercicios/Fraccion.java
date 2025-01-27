@@ -9,8 +9,8 @@ public class Fraccion {
     public Fraccion(){}
 
     public Fraccion(double numerador, double denominador) {
-        this.numerador = numerador;
-        this.denominador = denominador;
+        setDenominador(denominador);
+        setNumerador(numerador);
     }
 
     // METODOS
@@ -22,12 +22,31 @@ public class Fraccion {
         this.setNumerador(den);
     }
 
-    public double divide(){
-        return numerador/denominador;
+    public Fraccion multiplica(Fraccion f2){
+        Fraccion f3 = new Fraccion();
+
+        f3.setNumerador(this.getNumerador() * f2.getNumerador());
+        f3.setDenominador(this.getDenominador() * f2.getDenominador());
+
+        f3.simplifica();
+
+        return f3;
     }
 
-    public double multiplica(){
-        return numerador*denominador;
+    public Fraccion divide(Fraccion f2){
+        return new Fraccion(this.getNumerador()*f2.getDenominador(), this.getDenominador() * f2.getNumerador());
+
+    }
+
+    public void simplifica(){
+        double num = (this.getNumerador() > this.getDenominador()) ? getDenominador() : getNumerador();
+
+        for (double i = num; i > 0; i--) {
+            if (getNumerador()%i == 0 && getDenominador()%i == 0) {
+                setNumerador(getNumerador()/i);
+                setDenominador(getDenominador()/i);
+            }
+        }
     }
 
     // GETTERS & SETTERS
