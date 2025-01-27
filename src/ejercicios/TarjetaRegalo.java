@@ -2,7 +2,7 @@ package ejercicios;
 
 public class TarjetaRegalo {
 
-    private int saldo;
+    private double saldo;
     private String identificador;
     
 
@@ -11,7 +11,7 @@ public class TarjetaRegalo {
     public TarjetaRegalo() {
     }
 
-    public TarjetaRegalo(int saldo){
+    public TarjetaRegalo(double saldo){
 
         setSaldo(saldo);
         setIdentificador();
@@ -19,12 +19,12 @@ public class TarjetaRegalo {
 
     // METODOS
 
-    public void gasta(int cantidad) throws SaldoInsuficienteException{
+    public void gasta(double cantidad) throws SaldoInsuficienteException{
 
-        int resta = this.getSaldo() - cantidad;
+        double resta = this.getSaldo() - cantidad;
 
         if (resta < 0) throw new SaldoInsuficienteException();
-        else this.saldo = resta;
+        else setSaldo(resta);
 
     }
 
@@ -39,11 +39,11 @@ public class TarjetaRegalo {
     }
     // GETTERS & SETTERS
 
-    public int getSaldo() {
+    public double getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(int saldo){
+    public void setSaldo(double saldo){
         this.saldo = saldo;
     }
 

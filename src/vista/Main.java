@@ -29,7 +29,7 @@ public class Main {
         do {
             try {
                 t1 = new TarjetaRegalo(500);
-                t2 = new TarjetaRegalo(5);
+                t2 = new TarjetaRegalo(5.2);
 
                 System.out.println(t1.toString());
 
