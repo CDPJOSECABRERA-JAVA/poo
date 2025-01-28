@@ -2,21 +2,35 @@ package ejercicios;
 
 public class Fraccion {
     
-    double numerador, denominador;
+    int numerador, denominador;
+    int signo;
 
     // CONSTRUCTORES
 
     public Fraccion(){}
 
-    public Fraccion(double numerador, double denominador) {
-        setDenominador(denominador);
-        setNumerador(numerador);
+    public Fraccion(String numerador){
+        setNumerador(Integer.parseInt(numerador));
+        setDenominador(1);
+
+        this.signo = (this.numerador < 0) ? -1 : 1;
+        setNumerador(Math.abs(this.numerador));
+    }
+
+    public Fraccion(String numerador, String denominador) {
+        setNumerador(Integer.parseInt(numerador));
+        setDenominador(Integer.parseInt(denominador));
+
+       this.signo = (this.numerador*this.denominador < 0) ? -1 : 1;
+
+       setDenominador(Math.abs(this.denominador));
+       setNumerador(Math.abs(this.numerador));
     }
 
     // METODOS
 
     public void invierte(){
-        double den = this.getDenominador();
+        int den = this.getDenominador();
 
         this.setDenominador(numerador);
         this.setNumerador(den);
@@ -25,7 +39,7 @@ public class Fraccion {
     public Fraccion multiplica(Fraccion f2){
         Fraccion f3 = new Fraccion();
 
-        f3.setNumerador(this.getNumerador() * f2.getNumerador());
+        f3.setNumerador(this.getNumerador() * f2.getNumerador() * signo);
         f3.setDenominador(this.getDenominador() * f2.getDenominador());
 
         f3.simplifica();
@@ -34,44 +48,42 @@ public class Fraccion {
     }
 
     public Fraccion divide(Fraccion f2){
-        return new Fraccion(this.getNumerador()*f2.getDenominador(), this.getDenominador() * f2.getNumerador());
-
+        String numeradorStr = Integer.toString(this.getNumerador()*f2.getDenominador()*signo);
+        String denominadorStr = Integer.toString(this.getDenominador() * f2.getNumerador());
+        return new Fraccion(numeradorStr,denominadorStr);
     }
 
     public void simplifica(){
-        double num = (this.getNumerador() > this.getDenominador()) ? getDenominador() : getNumerador();
+        int num = (this.getNumerador() > this.getDenominador()) ? getDenominador() : getNumerador();
 
-        for (double i = num; i > 0; i--) {
+        for (int i = num; i > 0; i--) {
             if (getNumerador()%i == 0 && getDenominador()%i == 0) {
                 setNumerador(getNumerador()/i);
                 setDenominador(getDenominador()/i);
             }
         }
     }
-
-    // GETTERS & SETTERS
-
-    public double getNumerador() {
+    
+    // GETTERS Y SETTERS
+    public int getNumerador() {
         return numerador;
     }
 
-    public void setNumerador(double numerador) {
+    public void setNumerador(int numerador) {
         this.numerador = numerador;
     }
 
-    public double getDenominador() {
+    public int getDenominador() {
         return denominador;
     }
 
-    public void setDenominador(double denominador) {
+    public void setDenominador(int denominador) {
         this.denominador = denominador;
     }
 
     // TO STRING
-
     @Override
     public String toString() {
-        return "Fraccion [numerador=" + numerador + ", denominador=" + denominador + "]";
+        return numerador + "/" + denominador;
     }
-
 }

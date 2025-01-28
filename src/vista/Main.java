@@ -43,7 +43,7 @@ public class Main {
     private static void EjercicioFracciones(){
         
         
-        Fraccion f8 = new Fraccion(8, 4);
+        Fraccion f8 = new Fraccion("8", "4");
         System.out.println(f8.toString());
         
         f8.invierte();
@@ -53,16 +53,16 @@ public class Main {
         System.out.println(f8.toString());
 
 
-        Fraccion f1 = new Fraccion(2,3);
-        Fraccion f2 = new Fraccion(7,5);
+        Fraccion f1 = new Fraccion("2","3");
+        Fraccion f2 = new Fraccion("7","5");
 
         Fraccion f3 = f1.divide(f2);
         System.out.println(f3.toString());
         f3.simplifica();
         System.out.println(f3.toString());
 
-        Fraccion ff1 = new Fraccion(3,6);
-        Fraccion ff2 = new Fraccion(7,1);
+        Fraccion ff1 = new Fraccion("3","6");
+        Fraccion ff2 = new Fraccion("7");
         Fraccion ff3 = ff1.multiplica(ff2);
         System.out.println(ff3.toString());
 
